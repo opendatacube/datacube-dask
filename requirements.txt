@@ -1,0 +1,5 @@
+rasterio>=1.0.9
+git+https://github.com/dask/dask.git@0.20.2#egg=dask
+git+https://github.com/dask/distributed.git@1.25.0#egg=distributed
+dask-kubernetes
+bokeh

@@ -1,0 +1,41 @@
+kubernetes:
+  name: "dask-{uuid}"
+  namespace: null
+  count:
+    min: 2
+    start: 2
+    max: 4
+  host: '0.0.0.0'
+  port: 8786
+  env: {}
+
+  worker-template-path: null
+
+  worker-template:
+    kind: Pod
+    metadata:
+      labels:
+        app: dask
+      annotations:
+        iam.amazonaws.com/role: kubernetes-wms
+    spec:
+      restartPolicy: Never
+      containers:
+      - image: opendatacube/dask:latest
+        name: "dask"
+        args:
+          - dask-worker
+          - --nthreads
+          - '2'
+          - --no-bokeh
+          - --memory-limit
+          - 6GB
+          - --death-timeout
+          - '60'
+        resources:
+          limits:
+            cpu: "2"
+            memory: 6G
+          requests:
+            cpu: "2"
+            memory: 6G
