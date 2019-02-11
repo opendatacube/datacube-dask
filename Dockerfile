@@ -1,4 +1,4 @@
-FROM opendatacube/datacube-core:1.6.2
+FROM opendatacube/datacube-core:latest
 
 ADD requirements.txt .
 RUN yes | pip3 uninstall dask
