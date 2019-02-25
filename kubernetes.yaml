@@ -4,7 +4,7 @@ kubernetes:
   count:
     min: 2
     start: 2
-    max: 4
+    max: 100
   host: '0.0.0.0'
   port: 8786
   env: {}
