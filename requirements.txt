@@ -1,3 +1,4 @@
 dask==2.1.0
+cligj==0.5
 distributed
 bokeh

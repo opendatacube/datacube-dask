@@ -5,8 +5,7 @@ ADD ./requirements.txt /tmp/requirements.txt
 RUN pip3 install -r /tmp/requirements.txt \
     && rm -rf $HOME/.cache/pip
 
-WORKDIR /code/
-
+RUN mkdir -p /code/dask
 WORKDIR /code/dask/
 
 ADD kubernetes.yaml /etc/config/datacube/kubernetes-dask-default.yaml
