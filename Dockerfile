@@ -1,6 +1,8 @@
 FROM opendatacube/datacube-core:latest
 
-RUN pip3 install dask distributed bokeh \
+ADD ./requirements.txt /tmp/requirements.txt
+
+RUN pip3 install -r /tmp/requirements.txt \
     && rm -rf $HOME/.cache/pip
 
 WORKDIR /code/
